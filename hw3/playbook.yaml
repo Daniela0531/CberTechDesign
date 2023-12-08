@@ -1,0 +1,13 @@
+---
+- hosts: "all"
+  tasks:
+  - name: Clone repo
+    git:
+      repo: https://github.com/Daniela0531/git_app_for_hw3
+      dest: /project
+
+  - name: deploy Docker Compose stack
+    docker_compose:
+      project_src: /project
+      files:
+        - docker-compose.yml
